@@ -40,19 +40,25 @@ static persodata_v1* pd_check_v1 (void* ptr) {
 
 void pd_init (void) {
     persodata_v1* ppd = pd_check_v1((void*) PERSODATA_BASE);
-    if( ppd ) {
-        pd = *ppd;
-    } else { // TODO - check TrackNet legacy
+    //if( ppd ) {
+    //    pd = *ppd;
+    //} else { // TODO - check TrackNet legacy
         // fill defaults
         uint64_t eui;
-
         eui = 0xffffffaa00000000ULL | hal_unique();
         memcpy(pd.deveui, &eui, 8);
-        eui = 0xffffffbb00000000ULL;
+
+        eui = 0x00000001000000B4;
         memcpy(pd.joineui, &eui, 8);
-        memcpy(pd.nwkkey, "@ABCDEFGHIJKLMNO", 16);
-        memcpy(pd.appkey, "`abcdefghijklmno", 16);
-    }
+
+        //uint8_t appkey[16] = {0x0F, 0x7D, 0x4C, 0x39, 0x81, 0x7A, 0x37, 0x38, 0xDC, 0xDD, 0xA3, 0xA4, 0x6F, 0xAE, 0x90, 0x2C};
+
+        uint8_t appkey[16] = {0x2C, 0x90, 0xAE, 0x6F, 0xA4, 0xA3, 0xDD, 0xDC, 0x38, 0x37, 0x7A, 0x81, 0x39, 0x4C, 0x7D, 0xF};
+        memcpy(pd.nwkkey, appkey, 16);
+
+
+        memcpy(pd.appkey, appkey, 16);
+    //}
 }
 
 // private API to verify EEPROM data was valid
