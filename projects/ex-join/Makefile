@@ -5,7 +5,7 @@ TARGET := b_l072z_lrwan1
 
 VARIANTS := eu868 us915 hybrid simul
 
-REGIONS.simul := eu868
+REGIONS.simul := us915
 TARGET.simul := unicorn
 
 

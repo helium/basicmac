@@ -3,7 +3,7 @@
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this source code package.
 
-VARIANTS ?= eu868
+VARIANTS ?= eu868 us915
 
 RVARIANT	:= $(VARIANT)
 
