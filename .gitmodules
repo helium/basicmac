@@ -1,0 +1,3 @@
+[submodule "basicloader"]
+	path = basicloader
+	url = https://github.com/lorabasics/basicloader.git
